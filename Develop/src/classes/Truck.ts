@@ -36,11 +36,26 @@ constructor(
   topSpeed: number,
   wheels:Wheel[] = [new Wheel() new Wheel(), new Wheel(), new Wheel() ]
   towingCapacity: number,
- 
+ ) {
+
   super();
 
-) {
+  this.vin = vin;
+  this.color = color; 
+  this.make = make;
+  this.model = model;
+  this.year = year;
+  this.weight = weight;
+  this.topSpeed = topSpeed;
+  this.towingCapacity =towingCapacity;
 
+  
+if (wheels.length !== 4) {
+      this.wheels = [new Wheel(25,'GoodYear'), new Wheel(25,'GoodYear'), new Wheel(25,'GoodYear'), new Wheel(25,'GoodYear')];
+    } else {
+      this.wheels = wheels;
+    };
+  }
 
 
   // TODO: Implement the tow method from the AbleToTow interface
@@ -67,10 +82,31 @@ constructor(
 
     override printDetails(): void {
       super.printDetails();
-
       console.log(
-          VIN:$
-      )
+      vin: ${this.vin}
+      color: ${this.color}
+      make: ${this.make}
+      model: ${this.model}
+      year: ${this.year}
+      weight:${this.weight} lbs
+      top speed: ${this.topSpeed} mph
+      TOWING CAPACITY: ${this.towingCapacity} torque
+      Wheels: ${this.wheels.length}
+    );
+
+        console.log(
+          `Wheel 1: ${this.wheels[0].getDiameter} inch with a ${this.wheels[0].getTireBrand} tire`
+        )
+        console.log(
+          `Wheel 2: ${this.wheels[1].getDiameter} inch with a ${this.wheels[1].getTireBrand} tire`
+        );
+        console.log(
+          `Wheel 3: ${this.wheels[2].getDiameter} inch with a ${this.wheels[2].getTireBrand} tire`
+        );
+        console.log(
+          `Wheel 4: ${this.wheels[3].getDiameter} inch with a ${this.wheels[3].getTireBrand} tire`
+        );
+      }
 }
 
 // Export the Truck class as the default export
